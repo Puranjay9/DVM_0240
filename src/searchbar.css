@@ -1,0 +1,28 @@
+.searchbar{
+    display: flex;
+    width:440px;
+    border: none;
+    height: 40px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+.search{
+    border: none;
+    width:400px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    text-align:left;
+    margin-left: 6px;
+}
+
+.sicon{
+    margin: 7.5px 1px 7.5px 1px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.img{
+   transform: scale(2.0);
+}
