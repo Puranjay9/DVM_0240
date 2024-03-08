@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BookContextProvider } from './BookContext';
-import BlockDetailPage from './BlockDetailPage';
+import App from './App.jsx';
+import reportWebVitals from './reportWebVitals.js';
+import { BookContextProvider } from './BookContext.js';
+import BlockDetailPage from './BlockDetailPage.js';
 import SearchResult from './searchresult.js'; 
-import CategoriesPage from './CategoriesPage';
-import Authors from './Authors';
+import CategoriesPage from './CategoriesPage.js';
+import Authors from './Authors.js';
 import FavoritesList from './favorite.jsx'; 
-import NotFound from './NotFound';
+import NotFound from './NotFound.jsx';
 import SearchResultPage from './searchResultPage.jsx'; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

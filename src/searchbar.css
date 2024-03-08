@@ -26,3 +26,17 @@
 .img{
    transform: scale(2.0);
 }
+
+@media screen and (max-width: 600px) {
+    .searchbar {
+        width: 100%;
+    }
+
+    .search {
+        width: calc(100% - 12px); 
+    }
+
+    .sicon {
+        display: none;
+    }
+}

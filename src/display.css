@@ -60,3 +60,30 @@
    transform: scale(2.0);
 }
 
+@media screen and (max-width: 600px) {
+    .interaction {
+        margin-left: 0; 
+        width: 100%; 
+    }
+
+    .style1{
+        border-radius: 0;
+    }
+
+    .style2{
+        border-radius: 0;
+    }
+
+    .searchbar {
+        width: 100%; 
+    }
+
+    .search {
+        width: calc(100% - 12px); 
+    }
+
+    .img{
+        width: 100px;
+        height: 120px;
+    }
+}

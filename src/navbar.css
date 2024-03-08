@@ -59,3 +59,30 @@ li a {
 li a:hover{
     color: black;
 }
+
+@media screen and (max-width: 600px) {
+    .nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .logo h1{
+        width: 70px;
+        font-size: 15px;
+    }
+
+    li a{
+        width: 40px;
+    }
+
+    .logo {
+        margin-left: 0px; 
+    }
+
+    .listitem {
+        position: absolute;
+        top: 5%;
+        margin-left: 0px;
+    }
+}

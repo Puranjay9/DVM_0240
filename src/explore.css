@@ -30,3 +30,20 @@
     font-size: 20px;
     color: black;
 }
+
+@media screen and (max-width: 600px) {
+    .message2 {
+        margin: 40px 0 40px 0; 
+        width: 100%; 
+    }
+
+    .style3{
+        border-radius: 0;
+    }
+
+    .img {
+        width: 100%; 
+        height: auto; 
+        margin-right: 0; 
+    }
+}
