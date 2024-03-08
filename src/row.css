@@ -5,9 +5,21 @@
     box-sizing: border-box;
 }
 
-.block{
+.block-wrapper{
     margin-left:15px ;
     margin-bottom: 20px;
+    height: 260px;
+    width: 150px;
+    display:inline-block ;
+    vertical-align: top;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 100ms;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.block{
     height: 230px;
     width: 150px;
     display:inline-block ;
@@ -16,7 +28,11 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 100ms;
+    text-align: center;
+    text-decoration: none;
 }
+
+
 
 .block:hover{
     transform: scale(1.05);
@@ -27,6 +43,30 @@
     font-size: 20px;
 }
 
+.button{
+    background-color: yellow;
+    width: 150px;
+    height: 20px;
+}
+
 .block h2{
     font-size: 10px;
+}
+
+.block a {
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.block a:hover {
+    transform: inherit;
+    box-shadow: inherit;
+}
+
+.block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

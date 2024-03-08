@@ -6,14 +6,16 @@ import { BookContext } from './BookContext';
 export default function BlockDetailPage(){
     const { books } = useContext(BookContext);
 
-    const params = useParams()
+    console.log(books)
+    const {work_id} = useParams()
+    console.log({work_id})
 
     if (!books || !books[params.index]) {
         return <div>Loading book details...</div>;
       }
     
       const selectedBook = books[params.index];
-      
+
 
     return(
         <div className="Details">
@@ -28,7 +30,7 @@ export default function BlockDetailPage(){
                 <h2>Language : {selectedBook.language}</h2>
             </div>
             <div className="Description">
-                {selectedBook.summary}
+                <p>{selectedBook.summary}</p>
             </div>
         </div>
     )

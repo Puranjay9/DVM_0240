@@ -1,0 +1,9 @@
+.list{
+    margin: 0;
+    display: inline-block;
+    align-items: left;
+}
+
+.heading{
+    text-align: center;
+}
