@@ -15,7 +15,7 @@ export default function FavoritesList() {
       {favoriteBooks.length > 0 ? (
         favoriteBooks.map((book, index) => (
           <div key={index}>
-            <h2>{book.title}</h2>
+            <h2>{index+1}.  {book.title}</h2>
             <p>Author: {book.authors}</p>
           </div>
         ))

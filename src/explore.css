@@ -7,11 +7,13 @@
 }
 
 .message2{
+    padding: 10px 10px 10px 10px;
     margin:40px 230px 40px 60px ;
     width: 45%;
 }
 
 .style3{
+    margin-top: 0;
     width: 100%;
     height: 100px;
     border-radius: 0% 0% 9% 100% / 0% 0% 83% 100% ;
@@ -32,9 +34,20 @@
 }
 
 @media screen and (max-width: 600px) {
-    .message2 {
-        margin: 40px 0 40px 0; 
-        width: 100%; 
+    .style2{
+        display: none;
+    }
+
+    .container1{
+        position: relative;
+        height: 330px;
+        justify-content: center;
+    }
+    .message2{
+        position: absolute;
+        top: 0px;
+        margin: 10px 0 0px 0; 
+        width: 94%; 
     }
 
     .style3{
@@ -42,8 +55,17 @@
     }
 
     .img {
-        width: 100%; 
-        height: auto; 
-        margin-right: 0; 
+        position: absolute;
+        bottom: 0;
+        width: 190px;
+        height: 110px;
+        
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1000px){
+    .message2{
+        margin:0px 10px 10px 100px  ;
+        width: 300px;
     }
 }

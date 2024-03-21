@@ -10,9 +10,19 @@ export const BookContext = createContext({
     removeFromFavorites: () => {}
 });
 
+let lastRequestTime = 0;
+const RATE_LIMIT_PERIOD = 1000; 
+
 const cacheFetchBooks = (() => {
     let cache = {};
     return async () => {
+        const currentTime = Date.now();
+        if (currentTime - lastRequestTime < RATE_LIMIT_PERIOD) {
+
+            await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_PERIOD));
+        }
+        lastRequestTime = currentTime; 
+
         const cacheKey = 'booksCache'; 
         if (cache[cacheKey]) {
             return cache[cacheKey]; 
@@ -50,6 +60,7 @@ export const BookContextProvider = ({ children }) => {
 
         fetchData();
     }, []);
+    
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));

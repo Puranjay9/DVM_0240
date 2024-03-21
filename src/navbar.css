@@ -5,6 +5,7 @@ ul{
 .nav{
     display: flex;
     background-color: rgb(51, 230, 96);
+    margin-bottom: 0;
 }
 
 .logo{
@@ -64,25 +65,57 @@ li a:hover{
     .nav {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        height: 130px;
     }
 
 
     .logo h1{
-        width: 70px;
+        height: 60px;
+        font-size: 80px;
+        width: 100px;
         font-size: 15px;
+    }
+    
+    .logo h2{
+        position: relative;
+        top: 8%;
+        font-size: 80px;
+        width: 100px;
+        font-size: 10px;
+        padding: 0;
+    }
+
+    ul{
+        height: 40px;
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
     }
 
     li a{
-        width: 40px;
+        font-size: 17px;
+        padding: 5px;
+        width: 100%;
+        margin-left: 3px;
     }
 
     .logo {
         margin-left: 0px; 
+        height: 0px;
+        width: 100px;
     }
 
     .listitem {
-        position: absolute;
-        top: 5%;
+        position: relative;
+        top: 38%;
+        width: 100%;
         margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1000px){
+    .listitem{
+        margin-left: 170px;
     }
 }
