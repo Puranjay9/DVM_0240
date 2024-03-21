@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import './row.css'
 import { BookContext } from './BookContext';
 
+const refreshPage = () => {
+  window.location.reload();
+};
+
+
 export default function Row(props){
         // const [books, setBooks] = useState([]);
         const [hoverStates, setHoverStates] = useState([]);
@@ -71,11 +76,18 @@ export default function Row(props){
                        <div>
                         {favoritechecker(book.work_id)?
                         <button className='button'
-                         onClick={() => removeFromFavorites(book.work_id)}
+                         onClick={() => 
+                          {
+                            removeFromFavorites(book.work_id);
+                            refreshPage();
+                          }}
                         >Unfavorite</button>
                         : <button
                         className='button'
-                        onClick={() => addToFavorites(book)}
+                        onClick={() => {
+                          addToFavorites(book);
+                          refreshPage();
+                        } }
                         >Favorite</button>
                       }
                        </div>
