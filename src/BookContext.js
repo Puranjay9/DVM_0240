@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, {useState, useEffect, createContext } from 'react';
 import getBooks from './request';
 
 export const BookContext = createContext({
@@ -10,27 +10,24 @@ export const BookContext = createContext({
     removeFromFavorites: () => {}
 });
 
-let lastRequestTime = 0;
-const RATE_LIMIT_PERIOD = 1000; 
-
 const cacheFetchBooks = (() => {
     let cache = {};
     return async () => {
-        const currentTime = Date.now();
-        if (currentTime - lastRequestTime < RATE_LIMIT_PERIOD) {
-
-            await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_PERIOD));
-        }
-        lastRequestTime = currentTime; 
-
         const cacheKey = 'booksCache'; 
         if (cache[cacheKey]) {
             return cache[cacheKey]; 
         } else {
             try {
-                const data = await getBooks(); 
-                cache[cacheKey] = data.results; 
-                return data.results;
+                const cachedBooks = localStorage.getItem(cacheKey);
+                if (cachedBooks) {
+                    cache[cacheKey] = JSON.parse(cachedBooks);
+                    return cache[cacheKey];
+                } else {
+                    const data = await getBooks(); 
+                    cache[cacheKey] = data.results;
+                    localStorage.setItem(cacheKey, JSON.stringify(data.results)); 
+                    return data.results;
+                }
             } catch (error) {
                 throw error;
             }

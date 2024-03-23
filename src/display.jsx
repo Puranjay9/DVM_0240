@@ -10,6 +10,7 @@ export default function  Display(){
 
     return(
         <div className="display">
+            <div className="backimg">
             <div className="style1"></div>
             <div className="interaction">
                 <div className="message">
@@ -23,6 +24,7 @@ export default function  Display(){
                
             </div>
             <div className="style2"></div>
+            </div>
             <Explore/>
         </div>
     )

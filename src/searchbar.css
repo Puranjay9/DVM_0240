@@ -4,7 +4,7 @@
     border: none;
     height: 40px;
     border-radius: 15px;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .search{
@@ -12,7 +12,7 @@
     width:400px;
     height: 40px;
     border-radius: 15px;
-    background-color: whitesmoke;
+    background-color: white;
     text-align:left;
     margin-left: 6px;
 }
