@@ -3,17 +3,14 @@ import { BookContext } from './BookContext';
 
 export default function FavoritesList() {
   const { favorites } = useContext(BookContext);
-  const [favoriteBooks, setFavoriteBooks] = useState([]);
 
-  useEffect(() => {
-    setFavoriteBooks(favorites);
-  }, [favorites]);
+
 
   return (
     <div className="favorites-list">
       <h1>Favorites</h1>
-      {favoriteBooks.length > 0 ? (
-        favoriteBooks.map((book, index) => (
+      {favorites.length > 0 ? (
+        favorites.map((book, index) => (
           <div key={index}>
             <h2>{index+1}.  {book.title}</h2>
             <p>Author: {book.authors}</p>

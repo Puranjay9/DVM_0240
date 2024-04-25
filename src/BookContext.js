@@ -9,7 +9,7 @@ export const BookContext = createContext({
     setSelectedPage: () => {},
     favorites: [],
     addToFavorites: () => {},
-    removeFromFavorites: () => {}
+    removeFromFavorites: () => {},
 });
 
 export const BookContextProvider = ({ children }) => {
@@ -29,19 +29,12 @@ export const BookContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const booksData = await getBooks(searchQuery,null , null, selectedPage);
-                
-                const newData = JSON.stringify(booksData);
-                
-                localStorage.setItem('booksData', JSON.stringify(booksData));
-                console.log(books)
-                const storedData = localStorage.getItem('booksData');
+                const dataBooks = await getBooks(null, null, null, selectedPage);
+                const booksData = dataBooks?.results || [];
                 setBooks(booksData);
-                
-                if (storedData !== newData) {
-                    localStorage.setItem('booksData', newData);
-                    setBooks(booksData);
-                }
+                console.log(dataBooks);
+                console.log(books)
+                localStorage.setItem('booksData', JSON.stringify(booksData));
             } catch (error) {
                 console.error('Error fetching books:', error);
                 setError(error);
@@ -49,7 +42,7 @@ export const BookContextProvider = ({ children }) => {
         };
 
         fetchData();
-    }, [searchQuery, selectedPage]);
+    }, [ selectedPage]);
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -67,6 +60,7 @@ export const BookContextProvider = ({ children }) => {
         setSearchQuery(event.target.value);
     };
 
+
     return (
         <BookContext.Provider
             value={{
@@ -78,7 +72,7 @@ export const BookContextProvider = ({ children }) => {
                 favorites,
                 addToFavorites,
                 removeFromFavorites,
-                handleSearchChange,
+                handleSearchChange
             }}
         >
             {children}

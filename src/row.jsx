@@ -4,7 +4,7 @@ import './row.css';
 import { BookContext } from './BookContext';
 
 export default function Row(props) {
-    const { books, favorites, addToFavorites, removeFromFavorites, selectedPage, handlePageChange } = useContext(BookContext); // Add selectedPage and handlePageChange
+    const { books, favorites, addToFavorites, removeFromFavorites, selectedPage,setSelectedPage} = useContext(BookContext); // Add selectedPage and handlePageChange
 
     const [hoverStates, setHoverStates] = useState([]);
 
@@ -27,16 +27,25 @@ export default function Row(props) {
         return favorites.some((book) => book.work_id === work_id);
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            const newPageNumber = parseInt(event.target.value);
+            if (!isNaN(newPageNumber) && newPageNumber > 0) {
+                setSelectedPage(newPageNumber);
+            }
+        }
+    };
+
     return (
         <div className='row'>
             {/* Title and page number input */}
             <div className='title-container'>
                 <h1 className='title'>{props.title}</h1>
                 <input
-                    type='text'
-                    value={selectedPage} 
-                    onChange={handlePageChange}  
+                    type='text'  
+                    onKeyDown={handleKeyDown}
                     className='page-input' 
+                    placeholder='Enter page number'
                 />
             </div>
             
