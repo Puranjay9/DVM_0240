@@ -1,21 +1,20 @@
 import axiosInstance from './axios.jsx';
 
 
-const getBooks = async () => {
+const getBooks = async (bookType, lexileMin, lexileMax,  page) => {
   try {
     const response = await axiosInstance.get('/search', {
       params: {
-        series: 'Wings of fire',
-        book_type: 'Fiction',
-        lexile_min: '600',
-        lexile_max: '800',
-        results_per_page: '25',
-        page: '1'
+        book_type: bookType,
+        lexile_min: lexileMin,
+        lexile_max: lexileMax,
+        results_per_page: 50,
+        page: page 
       }
     });
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching books:', error);
     throw error;
   }
 };
